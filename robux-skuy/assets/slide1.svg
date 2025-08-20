@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 380'>
+<defs><linearGradient id='a' x1='0' y1='0' x2='1' y2='1'><stop stop-color='#f5f6f8'/><stop offset='1' stop-color='#e5e7eb'/></linearGradient></defs>
+<rect width='800' height='380' fill='url(#a)'/>
+<g font-family='Inter' font-weight='800' font-size='56' fill='#111827'>
+  <text x='60' y='150'>PROMO HEMAT</text>
+  <text x='60' y='220' font-size='28' fill='#6b7280'>Diskon s.d. 30% minggu ini</text>
+</g>
+</svg>

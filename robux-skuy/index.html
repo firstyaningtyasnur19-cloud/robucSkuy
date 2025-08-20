@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robux skuy — Toko Robux Kikinian</title>
+  <meta name="description" content="Robux skuy — toko robux kikinian: cepat, aman, dan harga bersahabat." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <!-- Backdrop particles -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="./assets/logo.svg" alt="Robux skuy" class="logo"/>
+        <span class="brand-text">Robux skuy</span>
+      </div>
+      <nav class="nav">
+        <a href="#produk">Produk</a>
+        <a href="#kenapa">Kenapa Kami</a>
+        <a href="#testi">Testimoni</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="actions">
+        <button id="searchBtn" class="ghost-btn" aria-label="Cari produk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span class="hide-sm">Cari</span>
+        </button>
+        <button id="cartBtn" class="cart-btn" aria-label="Buka keranjang" title="Keranjang">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 3h2l3.6 12.59a2 2 0 0 0 1.92 1.41h7.96a2 2 0 0 0 1.94-1.58L22 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="21" r="1.7" fill="currentColor"/><circle cx="18" cy="21" r="1.7" fill="currentColor"/></svg>
+          <span id="cartCount" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO with slider -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 data-animate="fade-up">Beli Robux legit 🧩</h1>
+          <p data-animate="fade-up" data-delay="100">Cepat, aman, dan pelayanan ramah. Top up jadi makin skuy!</p>
+          <div class="hero-cta" data-animate="fade-up" data-delay="200">
+            <a href="#produk" class="btn">Lihat Paket</a>
+            <button class="btn ghost" id="openCheckout">Checkout Cepat</button>
+          </div>
+          <div class="trust" data-animate="fade-up" data-delay="300">
+            <img src="./assets/shield.svg" alt="" />
+            <span>Garansi transaksi 100% aman</span>
+          </div>
+        </div>
+        <div class="hero-slider" data-animate="fade-in">
+          <div class="slides" id="slides">
+            <div class="slide current">
+              <img src="./assets/slide1.svg" alt="Promo hemat" />
+              <div class="caption">Promo hemat s.d. 30%</div>
+            </div>
+            <div class="slide">
+              <img src="./assets/slide2.svg" alt="Instan" />
+              <div class="caption">Proses instan & transparan</div>
+            </div>
+            <div class="slide">
+              <img src="./assets/slide3.svg" alt="Support 24/7" />
+              <div class="caption">Support fast-response 24/7</div>
+            </div>
+          </div>
+          <div class="slider-controls">
+            <button class="dot current" data-slide="0" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">Scroll</div>
+    </section>
+
+    <!-- Search drawer -->
+    <div id="searchDrawer" class="drawer" aria-hidden="true">
+      <div class="drawer-panel">
+        <div class="drawer-header">
+          <h3>Cari Paket Robux</h3>
+          <button class="icon" data-close-drawer>&times;</button>
+        </div>
+        <div class="drawer-body">
+          <input type="text" id="searchInput" placeholder="Ketik: 80, 400, premium..." />
+        </div>
+      </div>
+      <div class="drawer-backdrop" data-close-drawer></div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section class="section" id="produk">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-animate="fade-up">Pilihan Paket</h2>
+          <p data-animate="fade-up" data-delay="100">Harga pas, kualitas puas. Pilih paket sesuai kebutuhanmu.</p>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section muted" id="kenapa">
+      <div class="container features">
+        <article data-animate="fade-up">
+          <img src="./assets/flash.svg" alt="Cepat" />
+          <h3>Cepat</h3>
+          <p>Top up instan tanpa ribet. Status pesanan realtime.</p>
+        </article>
+        <article data-animate="fade-up" data-delay="100">
+          <img src="./assets/shield.svg" alt="Aman" />
+          <h3>Aman</h3>
+          <p>Metode pembayaran resmi & perlindungan akun.</p>
+        </article>
+        <article data-animate="fade-up" data-delay="200">
+          <img src="./assets/heart.svg" alt="Ramah" />
+          <h3>Ramah</h3>
+          <p>CS responsif 24/7. Tanya apapun, kami siap!</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section" id="testi">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-animate="fade-up">Apa kata mereka?</h2>
+          <p data-animate="fade-up" data-delay="100">Sedikit cuplikan dari ribuan pelanggan puas.</p>
+        </div>
+        <div class="testi-grid">
+          <figure data-animate="fade-in">
+            <blockquote>“Murah tapi ngebut prosesnya. PUAS!”</blockquote>
+            <figcaption>@arunika</figcaption>
+          </figure>
+          <figure data-animate="fade-in" data-delay="100">
+            <blockquote>“UI webnya modern, checkout gampang banget.”</blockquote>
+            <figcaption>@bintang</figcaption>
+          </figure>
+          <figure data-animate="fade-in" data-delay="200">
+            <blockquote>“Supportnya fast-respons 24 jam beneran.”</blockquote>
+            <figcaption>@nares</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section muted" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-animate="fade-up">FAQ</h2>
+          <p data-animate="fade-up" data-delay="100">Pertanyaan yang sering ditanyakan.</p>
+        </div>
+        <details data-animate="fade-up">
+          <summary>Apakah ini aman?</summary>
+          <p>Website ini adalah template demo. Untuk produksi, gunakan payment gateway resmi & ikuti panduan kebijakan platform.</p>
+        </details>
+        <details data-animate="fade-up">
+          <summary>Berapa lama proses top up?</summary>
+          <p>Biasanya instan sampai beberapa menit, tergantung metode pembayaran & antrian.</p>
+        </details>
+        <details data-animate="fade-up">
+          <summary>Apakah ini open source?</summary>
+          <p>Ya! Silakan modifikasi sesuai kebutuhanmu.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- CART Drawer -->
+  <aside id="cartDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-panel cart-panel">
+      <div class="drawer-header">
+        <h3>Keranjang</h3>
+        <button class="icon" data-close-drawer>&times;</button>
+      </div>
+      <div class="drawer-body" id="cartItems">
+        <!-- Items injected here -->
+      </div>
+      <div class="drawer-footer">
+        <div class="totals">
+          <span>Total</span>
+          <strong id="cartTotal">Rp0</strong>
+        </div>
+        <button class="btn full" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+    <div class="drawer-backdrop" data-close-drawer></div>
+  </aside>
+
+  <!-- CHECKOUT Modal -->
+  <div id="checkoutModal" class="modal" aria-hidden="true">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3>Checkout</h3>
+        <button class="icon" data-close-modal>&times;</button>
+      </div>
+      <form id="checkoutForm" class="modal-body">
+        <label>
+          <span>Nama Lengkap</span>
+          <input type="text" name="name" required placeholder="Nama kamu"/>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required placeholder="email@contoh.com"/>
+        </label>
+        <label>
+          <span>Username Roblox</span>
+          <input type="text" name="roblox" required placeholder="username kamu"/>
+        </label>
+        <label>
+          <span>Metode Pembayaran</span>
+          <select name="payment" required>
+            <option value="">Pilih metode</option>
+            <option>QRIS</option>
+            <option>Transfer Bank</option>
+            <option>E-Wallet</option>
+          </select>
+        </label>
+        <button class="btn full" type="submit">Buat Pesanan</button>
+        <p class="disclaimer">Demo saja: tidak ada uang/robux yang benar-benar diproses.</p>
+      </form>
+    </div>
+    <div class="modal-backdrop" data-close-modal></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <img src="./assets/logo.svg" alt="Robux skuy" class="logo"/>
+        <span class="brand-text">Robux skuy</span>
+      </div>
+      <p>© <span id="year"></span> Robux skuy • Dibuat dengan ❤️. Template demo untuk GitHub Pages.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram" title="Instagram">
+          <img src="./assets/ig.svg" alt="IG" />
+        </a>
+        <a href="#" aria-label="WhatsApp" title="WhatsApp">
+          <img src="./assets/wa.svg" alt="WA" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
